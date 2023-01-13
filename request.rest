@@ -1,0 +1,66 @@
+// Mongo DATA API : Post one todo
+POST https://data.mongodb-api.com/app/data-hmjpu/endpoint/data/v1/action/insertOne
+Content-Type: application/json
+//아래 Access-Control은 없어도 된다.
+Access-Control-Request-Headers: *
+api-key:q6sRfC1cD6jTG6NNBcLP0vrvoSy2yPrbOrYlpsegMDexwvAv5rOAxO2SOJDNKeW9
+
+{
+    "dataSource": "Cluster0",
+    "database":"todo_db",
+    "collection":"todos",
+    "document": {
+        "title":"Todo 23",
+        "complete":false,
+        "todoId" : 23
+    }
+}
+
+###
+// Mongo DATA API : Get all todo data
+POST https://data.mongodb-api.com/app/data-hmjpu/endpoint/data/v1/action/find
+Content-Type: application/json
+Access-Control-Request-Headers: *
+api-key:q6sRfC1cD6jTG6NNBcLP0vrvoSy2yPrbOrYlpsegMDexwvAv5rOAxO2SOJDNKeW9
+
+{
+    "dataSource": "Cluster0",
+    "database":"todo_db",
+    "collection":"todos"
+}
+
+###
+// Mongo DATA API : Get one todo data
+POST https://data.mongodb-api.com/app/data-hmjpu/endpoint/data/v1/action/findOne
+Content-Type: application/json
+Access-Control-Request-Headers: *
+api-key:q6sRfC1cD6jTG6NNBcLP0vrvoSy2yPrbOrYlpsegMDexwvAv5rOAxO2SOJDNKeW9
+
+{
+    "dataSource": "Cluster0",
+    "database":"todo_db",
+    "collection":"todos",
+    "filter":{"todoId":3}
+}
+
+###
+// REST Post one todo
+POST http://localhost:3936/api/todos
+Content-Type: application/json
+
+{
+    "title":"Todo 26",
+    "complete":false,
+    "todoId":26
+}
+
+###
+// REST Get all todo
+GET http://localhost:3936/api/todos
+Content-Type: application/json
+
+###
+// REST Get one todo
+GET http://localhost:3936/api/todos/26
+Content-Type: application/json
+
